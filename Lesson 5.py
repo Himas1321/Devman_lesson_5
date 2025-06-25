@@ -3,14 +3,8 @@ from faker import Faker
 import random
 import os
 
-os.makedirs('card', exist_ok=True)
-faker = Faker('ru_RU')
-name_file = faker
-fake_first_name = faker
-fake_last_name = faker
-fake_job = faker
-fake_town = faker
-runic_abc = {
+
+RUNIC_ABC = {
     'а': 'а͠',
     'б': 'б̋',
     'в': 'в͒͠',
@@ -82,6 +76,8 @@ runic_abc = {
 
 
 def main():
+    os.makedirs('card', exist_ok=True)
+    faker = Faker('ru_RU')
     for number in range(1, 11):
         random_strength = random.randint(3, 18)
         random_agility = random.randint(3, 18)
@@ -100,8 +96,8 @@ def main():
         skill_2 = random_skill[1]
         skill_3 = random_skill[2]
 
-        for russian_letters in runic_abc:
-            runic_letters = runic_abc[russian_letters]
+        for russian_letters in RUNIC_ABC:
+            runic_letters = RUNIC_ABC[russian_letters]
             skill_1 = skill_1.replace(russian_letters, runic_letters)
             skill_2 = skill_2.replace(russian_letters, runic_letters)
             skill_3 = skill_3.replace(russian_letters, runic_letters)
@@ -110,10 +106,10 @@ def main():
         runic_skill.append(skill_3)
 
         card = {
-            "first_name": fake_first_name.first_name_male(),
-            "last_name": fake_last_name.last_name_male(),
-            "job": fake_job.job(),
-            "town": fake_town.city(),
+            "first_name": faker.first_name_male(),
+            "last_name": faker.last_name_male(),
+            "job": faker.job(),
+            "town": faker.city(),
             "strength": random_strength,
             "agility": random_agility,
             "endurance": random_endurance,
