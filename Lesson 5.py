@@ -71,7 +71,7 @@ RUNIC_ABC = {
     'Э': 'Э͒͠͠',
     'Ю': 'Ю̋͠',
     'Я': 'Я̋',
-    ' ': ' '
+    ' ': ' ',
 }
 
 
@@ -85,9 +85,14 @@ def main():
         random_intelligence = random.randint(3, 18)
         random_luck = random.randint(3, 18)
         skill = [
-            'Стремительный прыжок', 'Электрический выстрел', 'Ледяной удар',
-            'Стремительный удар', 'Кислотный взгляд', 'Тайный побег',
-            'Ледяной выстрел', 'Огненный заряд'
+            'Стремительный прыжок',
+            'Электрический выстрел',
+            'Ледяной удар',
+            'Стремительный удар',
+            'Кислотный взгляд',
+            'Тайный побег',
+            'Ледяной выстрел',
+            'Огненный заряд',
         ]
 
         random_skill = random.sample(skill, 3)
@@ -106,23 +111,24 @@ def main():
         runic_skill.append(skill_3)
 
         card = {
-            "first_name": faker.first_name_male(),
-            "last_name": faker.last_name_male(),
-            "job": faker.job(),
-            "town": faker.city(),
-            "strength": random_strength,
-            "agility": random_agility,
-            "endurance": random_endurance,
-            "intelligence": random_intelligence,
-            "luck": random_luck,
-            "skill_1": skill_1,
-            "skill_2": skill_2,
-            "skill_3": skill_3
+            'first_name': faker.first_name_male(),
+            'last_name': faker.last_name_male(),
+            'job': faker.job(),
+            'town': faker.city(),
+            'strength': random_strength,
+            'agility': random_agility,
+            'endurance': random_endurance,
+            'intelligence': random_intelligence,
+            'luck': random_luck,
+            'skill_1': skill_1,
+            'skill_2': skill_2,
+            'skill_3': skill_3
         }
 
-        form = "card/form_{}.svg".format(number)
-        file_operations.render_template("charsheet.svg", form, card)
+        form = 'card/form_{}.svg'.format(number)
+        file_operations.render_template('charsheet.svg', form, card)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
+
